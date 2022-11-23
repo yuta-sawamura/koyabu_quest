@@ -1,7 +1,4 @@
 # koyabu_quest
-<<<<<<< HEAD
-#aaa11/22
-=======
 
 ## 環境構築
 
@@ -12,4 +9,3 @@
 3. `$ docker-compose exec java bash` # コンテナに入る
 4. `root@5b7be900c329:/usr/src# javac Main.java` # コンテナ内でコンパイル
 5. `root@5b7be900c329:/usr/src# java Main` # Main.class を実行
->>>>>>> e1074d0a8cde2cde89136e7562707ca5642294f5
