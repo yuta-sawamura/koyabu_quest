@@ -1,4 +1,4 @@
-public class Hero implements BattleCharacter {
+public class Hero extends Human implements BattleCharacter {
     private int hp;
     private String name;
 
@@ -6,27 +6,29 @@ public class Hero implements BattleCharacter {
     }
 
     public void talk() {
-        System.out.println("ああああ");
     }
 
-    // public int attack() {
-    // }
+    public int attack() {
+        return 1;
+    }
 
-    // public void runAway() {
-    // }
+    public void runAway() {
+    }
 
-    // public void sleep() {
-    // }
+    public void sleep() {
+    }
 
-    // public void setName(String name) {
-    // }
+    public void setName(String name) {
+    }
 
-    // public void setHp() {
-    // }
+    public void setHp() {
+    }
 
-    // public int getHp() {
-    // }
+    public int getHp() {
+        return 1;
+    }
 
-    // public String getName() {
-    // }
+    public String getName() {
+        return "";
+    }
 }

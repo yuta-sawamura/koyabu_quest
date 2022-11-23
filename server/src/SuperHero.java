@@ -1,9 +1,10 @@
-public class SuperHero {
-    int isFly;
+public class SuperHero extends Hero {
+    boolean isFly;
 
-    public superHero(){
-        this.isFly = false;
+    public SuperHero(int hp, String name){
+        super(hp, name);
     }
+
     public void fly() {
     }
 

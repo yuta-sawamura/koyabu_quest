@@ -4,7 +4,7 @@ public class Main {
 
         // ①勇者は、誕⽣したらプレーヤーから名前を与えられる。（くろだい）
         // heroインスタンスにHPと名前をセット
-        // Hero hero = new Hero(100, "小藪");
+        Hero hero = new Hero(100, "小藪");
 
         // ②勇者は、最初に、王様に会いに⾏き、使命を与えられる。（くろだい）
         // kingのコンストラクタでprintlnするだけ
