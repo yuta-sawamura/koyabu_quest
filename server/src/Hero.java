@@ -17,13 +17,15 @@ public class Hero extends Human implements BattleCharacter {
         public void talk() {
             System.out.println("勇者の名前は" + this.name + "勇者のHP" + this.hp);
         }
-    /*    
+        
         public void runAway() {
+            System.out.println("勇者は逃げた");
         }
         
-        public void sleep() {
+        public void sleep(int hp) {
+            System.out.println("勇者は眠ったHP:"+ 100 +"回復した");
+            this.hp += 100;
         }
-    */    
     
     /*name のsetter Method*/
     public void setName(String name) {
