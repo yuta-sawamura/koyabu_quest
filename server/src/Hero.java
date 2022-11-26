@@ -1,15 +1,14 @@
 public class Hero extends Human implements BattleCharacter {
 
-    private int hp;/* 勇者のHP */
-    private String name = "";/* 勇者の名前 */
+    private int hp = 10;
+    private String name = "";
 
-    public Hero(int hp, String name) {
-        this.hp = hp;
+    public Hero(String name) {
         this.name = name;
     }
 
     public int attack() {
-        return new java.util.Random().nextInt(10);
+        return new java.util.Random().nextInt(2) + 1;
     }
 
     public void talk() {
@@ -21,12 +20,12 @@ public class Hero extends Human implements BattleCharacter {
     }
 
     public void sleep() {
-        this.setHp(100);
+        this.setHp(10);
         System.out.println("勇者は眠った: 100HP回復した");
     }
 
     public void setHp(int hp) {
-        this.hp += hp;
+        this.hp = hp;
     }
 
     public int getHp() {

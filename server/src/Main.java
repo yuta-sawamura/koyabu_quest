@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.next();
 
-        Hero hero = new Hero(100, name);
+        Hero hero = new Hero(name);
         String heroName = hero.getName();
 
         System.out.println("勇者" + heroName + "は最初に王様に会いに行った");
@@ -15,20 +15,47 @@ public class Main {
 
         System.out.println("旅の途中で勇者は敵に出会った");
         int randomNumber = new java.util.Random().nextInt(3);
+        Monster enemy;
         if (randomNumber == 0) {
-            Slime enemy = new Slime();
-            System.out.println("敵：" + enemy.getName() + "の登場");
+            enemy = new Slime();
         } else if (randomNumber == 1) {
-            Goblin enemy = new Goblin();
-            System.out.println("敵：" + enemy.getName() + "の登場");
+            enemy = new Goblin();
         } else {
-            Werewolf enemy = new Werewolf();
-            System.out.println("敵：" + enemy.getName() + "の登場");
+            enemy = new Werewolf();
         }
+        String enemyName;
+        enemyName = enemy.getName();
+        System.out.println("敵：" + enemyName + "の登場");
 
         // ⑤敵に出会った場合、勇者がどう⾏動するかは、プレーヤーが決める。（澤村）
-
         // ⑥各キャラクターが攻撃を⾏った場合、敵にどの程度のダメージを与えることが出来るかは、乱数できまる。（澤村）
+        boolean isLoop = true;
+        while (isLoop) {
+            System.out.println("数値を入力する。 1:攻撃 2:逃げる");
+
+            int inputNumber = scanner.nextInt();
+            if (inputNumber == 1) {
+                int damage = hero.attack();
+                int enemyHp = enemy.getHp() - damage;
+                enemy.setHp(enemyHp);
+                if (enemyHp > 0) {
+                    System.out.println(heroName + "は" + enemyName + "に攻撃した");
+                    System.out.println(damage + "ダメージを与え、残りHPは" + enemyHp);
+                } else {
+                    System.out.println(heroName + "は" + enemyName + "に攻撃した");
+                    System.out.println(enemyName + "は死亡した");
+                    isLoop = false;
+                }
+            } else if (inputNumber == 2) {
+                System.out.println("逃げる");
+                isLoop = false;
+            } else {
+                System.err.println("無効な数値です");
+                System.exit(0);
+            }
+
+            // 敵の攻撃
+        }
 
         // ⑦旅の途中で、魔法使いに出会う。（澤村）
 
