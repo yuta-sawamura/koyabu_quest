@@ -1,7 +1,5 @@
 public class Wizard {
-    public wizard() {
-    }
-
     public void talk() {
+        System.out.println("「君をサポートするよ。」");
     }
 }

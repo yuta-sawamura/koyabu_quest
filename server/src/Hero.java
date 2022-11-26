@@ -16,12 +16,12 @@ public class Hero extends Human implements BattleCharacter {
     }
 
     public void runAway() {
-        System.out.println("勇者は逃げた");
+        System.out.println(this.getName() + "は逃げた");
     }
 
     public void sleep() {
         this.setHp(10);
-        System.out.println("勇者は眠った: 100HP回復した");
+        System.out.println(this.getName() + "は眠った。HPが全回復した");
     }
 
     public void setHp(int hp) {

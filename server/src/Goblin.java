@@ -2,7 +2,7 @@ public class Goblin extends Monster {
     private static String name = "ゴブリン";
 
     public Goblin() {
-        super.hp = 100;
+        super.hp = 10;
     }
 
     public void runAway() {
