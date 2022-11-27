@@ -2,7 +2,7 @@ public class Goblin extends Monster {
     private static String name = "ゴブリン";
 
     public Goblin() {
-        super.hp = 10;
+        this.hp = 10;
     }
 
     @Override

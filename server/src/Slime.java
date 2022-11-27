@@ -2,7 +2,7 @@ public class Slime extends Monster {
     private static String name = "スライム";
 
     public Slime() {
-        super.hp = 10;
+        this.hp = 10;
     }
 
     @Override

@@ -2,7 +2,7 @@ public class Werewolf extends Monster {
     private static String name = "狼男";
 
     public Werewolf() {
-        super.hp = 10;
+        this.hp = 10;
     }
 
     @Override

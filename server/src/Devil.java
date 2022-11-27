@@ -2,7 +2,7 @@ public class Devil extends Monster {
     private static String name = "魔王";
 
     public Devil() {
-        super.hp = 10;
+        this.hp = 10;
     }
 
     @Override
