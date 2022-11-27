@@ -23,6 +23,10 @@ public class Main {
             String enemyName = enemy.getName();
             System.out.println("敵：" + enemyName + "の登場");
 
+            if (Main.isBeatAllEnemies() && !(hero instanceof SuperHero)) {
+                hero = new SuperHero(hero.getName());
+            }
+
             while (true) {
                 System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる");
 
@@ -33,7 +37,8 @@ public class Main {
                     int enemyHp = enemy.getHp() - damage;
                     enemy.setHp(enemyHp);
                     if (enemyHp > 0) {
-                        System.out.println(heroName + "は" + enemyName + "に攻撃した。" + damage + "ダメージを与え、残りHPは" + enemyHp);
+                        System.out.println(
+                                heroName + "は" + enemyName + "に攻撃した。" + damage + "ダメージを与え、残りHPは" + enemyHp);
                     } else {
                         System.out.println(heroName + "は" + enemyName + "に攻撃した");
                         System.out.println(enemyName + "は死亡した");
@@ -123,7 +128,7 @@ public class Main {
         }
     }
 
-    private static boolean isAbleToSuperHero() {
-        return isBeatSlime == true && isBeatGoblin == true && isBeatWerewolf == true && becameSuperHero == false;
+    private static boolean isBeatAllEnemies() {
+        return isBeatSlime == true && isBeatGoblin == true && isBeatWerewolf == true;
     }
 }
