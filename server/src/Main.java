@@ -56,8 +56,13 @@ public class Main {
                 }
 
                 // 敵のターン
-                int selectedEnemynumber = new java.util.Random().nextInt(2);
-                if (selectedEnemynumber == 1) {
+                int selectedEnemynumber = new java.util.Random().nextInt(10);
+                // 逃げる確率は1/10。1/2の確率で逃げるを選択されるとゲームが全然終わらないため
+                if (selectedEnemynumber == 0) {
+                    System.out.println(enemyName + "は逃げた");
+                    Main.beatEnemy(enemy);
+                    break;
+                } else {
                     int damage = enemy.attack();
                     int heroHp = hero.getHp() - damage;
                     hero.setHp(heroHp);
@@ -66,10 +71,6 @@ public class Main {
                         System.out.println(heroName + "は死亡した。ゲーム終了");
                         System.exit(0);
                     }
-                } else {
-                    System.out.println(enemyName + "は逃げた");
-                    Main.beatEnemy(enemy);
-                    break;
                 }
             }
 
