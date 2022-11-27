@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     private static boolean isKilledSlime = false, isKilledGoblin = false, isKilledWerewolf = false,
-            isJoinedWizard = false, becameSuperHero = false;
+            becameSuperHero = false;
 
     public static void main(String[] args) {
         System.out.println("勇者の名前を入力して下さい");
@@ -80,25 +80,8 @@ public class Main {
                 }
             }
 
-            if (isJoinedWizard == false) {
-                System.out.println("魔法使いに出会った。" + heroName + "は魔法使いを仲間に誘った");
-                int randomNumber = new java.util.Random().nextInt(3);
-                Wizard wizard;
-                if (randomNumber == 1) {
-                    wizard = new Wizard();
-                    wizard.talk();
-                    isJoinedWizard = true;
-                    System.out.println("魔法使いは仲間に加わった");
-                } else {
-                    System.out.println("魔法使いは誘いを断った");
-                }
-            }
-
             // ⑧スライム、ゴブリン、狼男を全て倒し、魔法使いと仲間になると、勇者は、スーパー勇者になる。（澤村）
             SuperHero superHero;
-            // if (isKilledSlime == true && isKilledGoblin == true && isKilledWerewolf ==
-            // true && isJoinedWizard == true
-            // && becameSuperHero == false) {
             if (Main.isAbleToSuperHero()) {
                 superHero = new SuperHero(hero.getName());
                 becameSuperHero = true;
@@ -154,7 +137,6 @@ public class Main {
     }
 
     private static boolean isAbleToSuperHero() {
-        return isKilledSlime == true && isKilledGoblin == true && isKilledWerewolf == true && isJoinedWizard == true
-                && becameSuperHero == false;
+        return isKilledSlime == true && isKilledGoblin == true && isKilledWerewolf == true && becameSuperHero == false;
     }
 }
