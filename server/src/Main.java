@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    private static boolean isKilledSlime = false, isKilledGoblin = false, isKilledWerewolf = false,
+    private static boolean isBeatSlime = false, isBeatGoblin = false, isBeatWerewolf = false,
             becameSuperHero = false;
 
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class Main {
                     } else {
                         System.out.println(heroName + "は" + enemyName + "に攻撃した");
                         System.out.println(enemyName + "は死亡した");
-                        Main.killedEnemy(enemy);
+                        Main.beatEnemy(enemy);
                         break;
                     }
                 } else if (inputNumber == 2) {
@@ -63,7 +63,7 @@ public class Main {
                     }
                 } else {
                     System.out.println(enemyName + "は逃げた");
-                    Main.killedEnemy(enemy);
+                    Main.beatEnemy(enemy);
                     break;
                 }
             }
@@ -106,24 +106,24 @@ public class Main {
         }
     }
 
-    private static void killedEnemy(Monster enemy) {
+    private static void beatEnemy(Monster enemy) {
         if (enemy instanceof Slime) {
-            isKilledSlime = true;
+            isBeatSlime = true;
             return;
         }
 
         if (enemy instanceof Goblin) {
-            isKilledGoblin = true;
+            isBeatGoblin = true;
             return;
         }
 
         if (enemy instanceof Werewolf) {
-            isKilledWerewolf = true;
+            isBeatWerewolf = true;
             return;
         }
     }
 
     private static boolean isAbleToSuperHero() {
-        return isKilledSlime == true && isKilledGoblin == true && isKilledWerewolf == true && becameSuperHero == false;
+        return isBeatSlime == true && isBeatGoblin == true && isBeatWerewolf == true && becameSuperHero == false;
     }
 }
