@@ -1,7 +1,4 @@
-public class Princess {
-    public princess() {
-    }
-
+public class Princess extends Human {
     public void talk() {
     }
 }
