@@ -7,10 +7,12 @@ public class Hero extends Human implements BattleCharacter {
         this.name = name;
     }
 
+    @Override
     public int attack() {
         return new java.util.Random().nextInt(2) + 1;
     }
 
+    @Override
     public void talk() {
         System.out.println("勇者の名前は" + this.name + "勇者のHP" + this.hp);
     }

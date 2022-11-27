@@ -5,10 +5,12 @@ public class Devil extends Monster {
         super.hp = 10;
     }
 
+    @Override
     public void runAway() {
         System.out.println(Devil.name + "は逃げた");
     }
 
+    @Override
     public int attack() {
         return new java.util.Random().nextInt(9) + 1;
     }

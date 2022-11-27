@@ -5,10 +5,12 @@ public class Slime extends Monster {
         super.hp = 10;
     }
 
+    @Override
     public void runAway() {
         System.out.println(Slime.name + "は逃げた");
     }
 
+    @Override
     public int attack() {
         return 1;
     }
