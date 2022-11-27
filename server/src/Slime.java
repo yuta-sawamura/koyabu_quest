@@ -15,6 +15,7 @@ public class Slime extends Monster {
         return 1;
     }
 
+    @Override
     public String getName() {
         return Slime.name;
     }

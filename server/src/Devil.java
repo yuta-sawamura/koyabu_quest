@@ -15,6 +15,7 @@ public class Devil extends Monster {
         return new java.util.Random().nextInt(9) + 1;
     }
 
+    @Override
     public String getName() {
         return Devil.name;
     }

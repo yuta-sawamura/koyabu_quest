@@ -15,6 +15,7 @@ public class Goblin extends Monster {
         return new java.util.Random().nextInt(2) + 1;
     }
 
+    @Override
     public String getName() {
         return Goblin.name;
     }
