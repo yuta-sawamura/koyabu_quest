@@ -19,19 +19,8 @@ public class Main {
         boolean isStory = true;
         while (isStory) {
             System.out.println("旅の途中で勇者は敵に出会った");
-            Monster enemy;
-            enemy = getEnemy();
-            // int randomNumber = new java.util.Random().nextInt(3);
-            // Monster enemy;
-            // if (randomNumber == 0) {
-            // enemy = new Slime();
-            // } else if (randomNumber == 1) {
-            // enemy = new Goblin();
-            // } else {
-            // enemy = new Werewolf();
-            // }
-            String enemyName;
-            enemyName = enemy.getName();
+            Monster enemy = getEnemy();
+            String enemyName = enemy.getName();
             System.out.println("敵：" + enemyName + "の登場");
 
             boolean isBattle = true;
@@ -81,12 +70,12 @@ public class Main {
             }
 
             // ⑧スライム、ゴブリン、狼男を全て倒し、魔法使いと仲間になると、勇者は、スーパー勇者になる。（澤村）
-            SuperHero superHero;
-            if (Main.isAbleToSuperHero()) {
-                superHero = new SuperHero(hero.getName());
-                becameSuperHero = true;
-                System.out.println(heroName + "スーパー勇者になった");
-            }
+            // SuperHero superHero;
+            // if (Main.isAbleToSuperHero()) {
+            // superHero = new SuperHero(hero.getName());
+            // becameSuperHero = true;
+            // System.out.println(heroName + "スーパー勇者になった");
+            // }
 
             // ⑨スーパー勇者になったあと、再び旅に出る。（澤村）
             // ⑩旅の途中で、敵に出会う。（澤村）
@@ -99,7 +88,6 @@ public class Main {
 
         scanner.close();
         System.out.println("使命を完了した");
-
     }
 
     private static Monster getEnemy() {
