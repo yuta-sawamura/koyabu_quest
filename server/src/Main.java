@@ -23,8 +23,7 @@ public class Main {
             String enemyName = enemy.getName();
             System.out.println("敵：" + enemyName + "の登場");
 
-            boolean isBattle = true;
-            while (isBattle) {
+            while (true) {
                 System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる");
 
                 // 勇者のターン
@@ -39,13 +38,13 @@ public class Main {
                         System.out.println(heroName + "は" + enemyName + "に攻撃した");
                         System.out.println(enemyName + "は死亡した");
                         Main.killedEnemy(enemy);
-                        isBattle = false;
+                        break;
                     }
                 } else if (inputNumber == 2) {
                     hero.sleep();
                 } else if (inputNumber == 3) {
                     hero.runAway();
-                    isBattle = false;
+                    break;
                 } else {
                     System.err.println("無効な数値です");
                     System.exit(0);
@@ -65,7 +64,7 @@ public class Main {
                 } else {
                     System.out.println(enemyName + "は逃げた");
                     Main.killedEnemy(enemy);
-                    isBattle = false;
+                    break;
                 }
             }
 
