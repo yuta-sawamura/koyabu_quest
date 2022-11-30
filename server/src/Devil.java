@@ -2,7 +2,7 @@ public class Devil extends Monster {
     private static String name = "魔王";
 
     public Devil() {
-        this.hp = 10;
+        this.hp = 100;
     }
 
     @Override
@@ -12,7 +12,8 @@ public class Devil extends Monster {
 
     @Override
     public int attack() {
-        return new java.util.Random().nextInt(9) + 1;
+        int x = new java.util.Random().nextInt(9) + 1;
+        return x * 5;
     }
 
     @Override

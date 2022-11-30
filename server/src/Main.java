@@ -30,7 +30,7 @@ public class Main {
             System.out.println("敵：" + enemyName + "の登場");
 
             while (true) {
-                System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる");
+                System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる 4:仲間にする");
 
                 // 勇者のターン
                 try {
@@ -67,6 +67,20 @@ public class Main {
                     } else if (inputNumber == 3) {
                         hero.runAway();
                         break;
+                    } else if (inputNumber == 4) {
+                        hero.partner();
+                        Main.killEnemy(enemy);
+                        System.out.println(heroName + "は" + enemyName + "を仲間にした");
+                        if (Main.isKilledAllEnemies() && hero instanceof SuperHero == false) {
+                            // スーバーヒーローになる
+                            hero = new SuperHero(hero.getName());
+                            hero.talk();
+                        }
+                        // 魔王を倒した場合
+                        if (enemy instanceof Devil) {
+                            isStory = false;
+                        }
+                        break;
                     } else {
                         System.err.println("無効な数値です");
                         System.exit(0);
@@ -74,7 +88,6 @@ public class Main {
                 } catch (InputMismatchException e) {
                     System.out.println("数値ではありません、数値を入力して下さい");
                 }
-
                 // 敵のターン
                 int selectedEnemyNumber = new java.util.Random().nextInt(10);
                 // 逃げる確率は1/10。1/2の確率で逃げるを選択されるとゲームが全然終わらないため
@@ -96,7 +109,8 @@ public class Main {
         }
 
         scanner.close();
-        System.out.println("お姫様:助けてくれてありがとう！");
+        Princess princess = new Princess();
+        princess.talk();
         System.out.println("===完===");
     }
 
