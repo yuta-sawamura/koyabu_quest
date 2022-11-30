@@ -12,9 +12,7 @@ public class Hero extends Human implements BattleCharacter {
         int x = new java.util.Random().nextInt(4) + 1;
         return x * 5;
     }
-    
-   
-    
+
     @Override
     public void talk() {
         System.out.println("勇者の名前は" + this.name + "勇者のHP" + this.hp);
@@ -28,12 +26,10 @@ public class Hero extends Human implements BattleCharacter {
         this.setHp(100);
         System.out.println(this.getName() + "は眠った。HPが全回復した");
     }
-    
+
     public void partner() {
         System.out.println(this.getName() + "は仲間になるように交渉した");
     }
-
-    
 
     public void setHp(int hp) {
         this.hp = hp;

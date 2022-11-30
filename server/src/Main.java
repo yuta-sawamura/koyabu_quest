@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 public class Main {
     private static boolean isKilledSlime = false, isKilledGoblin = false, isKilledWerewolf = false;
 
