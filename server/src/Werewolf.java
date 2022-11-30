@@ -2,7 +2,7 @@ public class Werewolf extends Monster {
     private static String name = "狼男";
 
     public Werewolf() {
-        this.hp = 10;
+        this.hp = 100;
     }
 
     @Override
@@ -12,7 +12,8 @@ public class Werewolf extends Monster {
 
     @Override
     public int attack() {
-        return new java.util.Random().nextInt(4) + 1;
+        int x = new java.util.Random().nextInt(8) + 1;
+        return x * 5;
     }
 
     public String getName() {
