@@ -104,7 +104,8 @@ public class Main {
         }
 
         scanner.close();
-        System.out.println("お姫様:助けてくれてありがとう！");
+        Princess princess = new Princess();
+        princess.talk();
         System.out.println("===完===");
     }
 
