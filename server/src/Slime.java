@@ -2,7 +2,7 @@ public class Slime extends Monster {
     private static String name = "スライム";
 
     public Slime() {
-        this.hp = 10;
+        this.hp = 100;
     }
 
     @Override
@@ -12,7 +12,8 @@ public class Slime extends Monster {
 
     @Override
     public int attack() {
-        return 1;
+        int x = new java.util.Random().nextInt(2) + 1;
+        return x * 5;
     }
 
     @Override

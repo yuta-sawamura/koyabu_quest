@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Main {
     private static boolean isKilledSlime = false, isKilledGoblin = false, isKilledWerewolf = false;
 
@@ -29,7 +30,7 @@ public class Main {
             System.out.println("敵：" + enemyName + "の登場");
 
             while (true) {
-                System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる");
+                System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる 4:仲間にする");
 
                 // 勇者のターン
                 int inputNumber = scanner.nextInt();
@@ -63,6 +64,20 @@ public class Main {
                     hero.sleep();
                 } else if (inputNumber == 3) {
                     hero.runAway();
+                    break;
+                } else if (inputNumber == 4) {
+                    hero.partner();
+                    Main.killEnemy(enemy);
+                    System.out.println(heroName + "は" + enemyName + "を仲間にした");
+                    if (Main.isKilledAllEnemies() && hero instanceof SuperHero == false) {
+                        // スーバーヒーローになる
+                        hero = new SuperHero(hero.getName());
+                        hero.talk();
+                    }
+                    // 魔王を倒した場合
+                    if (enemy instanceof Devil) {
+                        isStory = false;
+                    }
                     break;
                 } else {
                     System.err.println("無効な数値です");

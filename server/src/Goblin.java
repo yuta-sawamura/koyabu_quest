@@ -2,7 +2,7 @@ public class Goblin extends Monster {
     private static String name = "ゴブリン";
 
     public Goblin() {
-        this.hp = 10;
+        this.hp = 100;
     }
 
     @Override
@@ -12,7 +12,8 @@ public class Goblin extends Monster {
 
     @Override
     public int attack() {
-        return new java.util.Random().nextInt(2) + 1;
+        int x = new java.util.Random().nextInt(4) + 1;
+        return x * 5;
     }
 
     @Override
