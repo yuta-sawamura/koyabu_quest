@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -32,57 +33,61 @@ public class Main {
                 System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる 4:仲間にする");
 
                 // 勇者のターン
-                int inputNumber = scanner.nextInt();
-                if (inputNumber == 1) {
-                    int damage = hero.attack();
-                    int enemyHp = enemy.getHp() - damage;
-                    enemy.setHp(enemyHp);
-                    // 敵を倒した場合
-                    if (enemyHp > 0) {
-                        System.out.println(
-                                heroName + "は" + enemyName + "に攻撃した。" + damage + "ダメージを与え、残りHPは" + enemyHp);
-                    } else {
-                        System.out.println(heroName + "は" + enemyName + "に攻撃した");
-                        System.out.println(enemyName + "は死亡した");
+                try {
+                    Scanner sc = new Scanner(System.in);
+                    int inputNumber = sc.nextInt();
+
+                    if (inputNumber == 1) {
+                        int damage = hero.attack();
+                        int enemyHp = enemy.getHp() - damage;
+                        enemy.setHp(enemyHp);
+                        // 敵を倒した場合
+                        if (enemyHp > 0) {
+                            System.out.println(
+                                    heroName + "は" + enemyName + "に攻撃した。" + damage + "ダメージを与え、残りHPは" + enemyHp);
+                        } else {
+                            System.out.println(heroName + "は" + enemyName + "に攻撃した");
+                            System.out.println(enemyName + "は死亡した");
+                            Main.killEnemy(enemy);
+                            // スライム、狼男、ゴブリンを全員倒し、スーパー勇者でない場合
+                            if (Main.isKilledAllEnemies() && hero instanceof SuperHero == false) {
+                                System.out.println("スライム、狼男、ゴブリンを全員倒した");
+                                // スーバーヒーローになる
+                                hero = new SuperHero(hero.getName());
+                                hero.talk();
+                            }
+                            // 魔王を倒した場合
+                            if (enemy instanceof Devil) {
+                                isStory = false;
+                            }
+                            break;
+                        }
+                    } else if (inputNumber == 2) {
+                        hero.sleep();
+                    } else if (inputNumber == 3) {
+                        hero.runAway();
+                        break;
+                    } else if (inputNumber == 4) {
+                        hero.partner();
                         Main.killEnemy(enemy);
-                        // スライム、狼男、ゴブリンを全員倒し、スーパー勇者でない場合
+                        System.out.println(heroName + "は" + enemyName + "を仲間にした");
                         if (Main.isKilledAllEnemies() && hero instanceof SuperHero == false) {
-                            System.out.println("スライム、狼男、ゴブリンを全員倒した");
                             // スーバーヒーローになる
                             hero = new SuperHero(hero.getName());
                             hero.talk();
                         }
-
                         // 魔王を倒した場合
                         if (enemy instanceof Devil) {
                             isStory = false;
                         }
                         break;
+                    } else {
+                        System.err.println("無効な数値です");
+                        System.exit(0);
                     }
-                } else if (inputNumber == 2) {
-                    hero.sleep();
-                } else if (inputNumber == 3) {
-                    hero.runAway();
-                    break;
-                } else if (inputNumber == 4) {
-                    hero.partner();
-                    Main.killEnemy(enemy);
-                    System.out.println(heroName + "は" + enemyName + "を仲間にした");
-                    if (Main.isKilledAllEnemies() && hero instanceof SuperHero == false) {
-                        // スーバーヒーローになる
-                        hero = new SuperHero(hero.getName());
-                        hero.talk();
-                    }
-                    // 魔王を倒した場合
-                    if (enemy instanceof Devil) {
-                        isStory = false;
-                    }
-                    break;
-                } else {
-                    System.err.println("無効な数値です");
-                    System.exit(0);
+                } catch (InputMismatchException e) {
+                    System.out.println("数値ではありません、数値を入力して下さい");
                 }
-
                 // 敵のターン
                 int selectedEnemyNumber = new java.util.Random().nextInt(10);
                 // 逃げる確率は1/10。1/2の確率で逃げるを選択されるとゲームが全然終わらないため
