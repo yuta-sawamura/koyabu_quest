@@ -33,9 +33,6 @@ public class Main {
                 System.out.println("数値を入力する。 1:攻撃 2:眠る 3:逃げる");
 
                 // 勇者のターン
-                // int inputNumber = scanner.nextInt();
-                // inputが数値以外を入力された場合は入力に戻る、処理を終わらないように変更
-
                 try {
                     Scanner sc = new Scanner(System.in);
                     int inputNumber = sc.nextInt();
